@@ -7,4 +7,12 @@ $ source .venv/bin/activate.fish
 (.venv) $ pip install -r requirements/dev.txt
 ```
 
-## Run
+## 推論
+```
+python infer.py models/mit-b1/ outputs/logits_mit_b1.pt
+```
+
+## Visualize
+```
+PYTHONPATH=. python scripts/visualize.py outputs/logits_mit_b4.pt [OUTPUT_PNG_FILENAME]
+```

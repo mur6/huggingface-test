@@ -1,2 +1,6 @@
-transformers
+transformers[onnx]
 datasets
+torch
+opencv-python
+matplotlib
+timm
