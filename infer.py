@@ -17,7 +17,7 @@ def iter_pil_images():
 
 
 image_list = list(iter_pil_images())
-images = image_list[0:3]
+images = image_list
 
 # feature_extractor = SegformerFeatureExtractor.from_pretrained("nvidia/mit-b0")
 feature_extractor_inference = SegformerFeatureExtractor(do_random_crop=False, do_pad=False)
@@ -40,9 +40,17 @@ import matplotlib.pyplot as plt
 # axs[1].imshow(color_seg)
 # plt.show()
 
+# fig = plt.figure(tight_layout=True)
+# axes = fig.subplots(1, 2)
+num = len(image_list)
+fig, axes = plt.subplots(num, 2)
+
 # select a sample from the batch
-for img in logits:
+for index, (orig, result_image) in enumerate(zip(image_list, logits)):
     # permute to match the desired memory format
-    img = img.permute(1, 2, 0).detach().numpy()
-    plt.imshow(img)
-    plt.show()
+    result_image = result_image.permute(1, 2, 0).detach().numpy()
+    # plt.imshow(result_image)
+    # plt.show()
+    axes[index, 0].imshow(orig)
+    axes[index, 1].imshow(result_image)
+plt.show()
