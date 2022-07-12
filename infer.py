@@ -4,6 +4,7 @@ import torch
 # import cv2
 from pathlib import Path
 from PIL import Image
+import numpy as np
 
 
 def iter_pil_images():
@@ -29,7 +30,9 @@ outputs = model(**inputs)
 # shape (batch_size, num_labels, height, width)
 
 logits = outputs.logits
-print(logits.shape)
+
+print(f"outputs: {type(outputs)}")
+print(f"outputs.logis: {logits.shape}")
 
 
 import matplotlib.pyplot as plt
@@ -42,15 +45,25 @@ import matplotlib.pyplot as plt
 
 # fig = plt.figure(tight_layout=True)
 # axes = fig.subplots(1, 2)
+
 num = len(image_list)
 fig, axes = plt.subplots(num, 2)
+# f = plt.figure()
+softmax = torch.nn.Softmax()
+converted = softmax(logits)
 
 # select a sample from the batch
-for index, (orig, result_image) in enumerate(zip(image_list, logits)):
+for index, (orig, result_image) in enumerate(zip(image_list, converted)):
     # permute to match the desired memory format
-    result_image = result_image.permute(1, 2, 0).detach().numpy()
-    # plt.imshow(result_image)
+    # result_image = result_image.permute(1, 2, 0).detach().numpy()
+    result_image = result_image.detach().numpy()
+    # plt.imshow(result_image[1])
+    # plt.imshow(result_image[2])
     # plt.show()
-    axes[index, 0].imshow(orig)
-    axes[index, 1].imshow(result_image)
+    # values = np.asarray(result_image, dtype=int)
+    # values = np.unique(values)
+    # print(result_image.shape)
+    # print(values)
+    axes[index, 0].imshow(result_image[1])
+    axes[index, 1].imshow(result_image[2])
 plt.show()
