@@ -7,4 +7,7 @@ $ source .venv/bin/activate.fish
 (.venv) $ pip install -r requirements/dev.txt
 ```
 
-## Run
+## 推論
+```
+python infer.py models/mit-b1/ logits_mit_b1.pt
+```
