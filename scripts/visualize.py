@@ -1,3 +1,5 @@
+import sys
+
 import matplotlib.pyplot as plt
 import torch
 
@@ -6,8 +8,8 @@ from src.utils import get_images
 softmax = torch.nn.Softmax()
 
 
-def main():
-    logits = torch.load("logits_mit_b4.pt")
+def main(output_pt_file):
+    logits = torch.load(output_pt_file)
     converted = (softmax(logits) > 0.95).type(torch.uint8)
     # converted = softmax(logits)
     num = 1
@@ -35,4 +37,6 @@ def save(idx, orig_image, result_image):
     plt.savefig(f"output{idx}.png")
 
 
-main()
+if __name__ == "__main__":
+    output_pt_file = sys.argv[1]
+    main(output_pt_file)
