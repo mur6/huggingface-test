@@ -14,4 +14,4 @@ def _iter_pil_images():
 
 
 def get_images():
-    return list(_iter_pil_images())
+    return tuple(_iter_pil_images())
