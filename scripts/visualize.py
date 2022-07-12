@@ -27,10 +27,10 @@ def save(idx, orig_image, result_image):
     ax1.imshow(orig_image)
     ax2 = fig.add_subplot(132)
     ax2.set_title("class:1 hand")
-    ax2.imshow(result_image[1], cmap="viridis")
+    ax2.imshow(result_image[1], cmap="viridis", interpolation="none")
     ax2 = fig.add_subplot(133)
     ax2.set_title("class:2 mat")
-    ax2.imshow(result_image[2], cmap="viridis")
+    ax2.imshow(result_image[2], cmap="viridis", interpolation="none")
 
     plt.savefig(f"output{idx}.png")
 
