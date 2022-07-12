@@ -9,7 +9,7 @@ $ source .venv/bin/activate.fish
 
 ## 推論
 ```
-python infer.py models/mit-b1/ logits_mit_b1.pt
+python infer.py models/mit-b1/ outputs/logits_mit_b1.pt
 ```
 
 ## Visualize
