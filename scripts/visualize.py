@@ -8,7 +8,7 @@ from src.utils import get_images
 softmax = torch.nn.Softmax()
 
 
-def main(output_pt_file):
+def main(pt_file, output_image_file):
     logits = torch.load(output_pt_file)
     converted = (softmax(logits) > 0.95).type(torch.uint8)
     # converted = softmax(logits)
@@ -22,7 +22,7 @@ def main(output_pt_file):
         save(ax, orig_image, result_image)
 
     plt.tight_layout()
-    plt.savefig("FRED", bbox_inches="tight")
+    plt.savefig(output_image_file, bbox_inches="tight")
 
 
 def save(ax, orig_image, result_image):
@@ -43,4 +43,5 @@ def save(ax, orig_image, result_image):
 
 if __name__ == "__main__":
     output_pt_file = sys.argv[1]
-    main(output_pt_file)
+    output_image_file = sys.argv[2]
+    main(output_pt_file, output_image_file)
