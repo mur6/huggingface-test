@@ -16,3 +16,8 @@ python infer.py models/mit-b1/ outputs/logits_mit_b1.pt
 ```
 PYTHONPATH=. python scripts/visualize.py outputs/logits_mit_b4.pt [OUTPUT_PNG_FILENAME]
 ```
+
+## ONNXへの変換
+```
+PYTHONPATH=. python scripts/segformer_onnx_export.py
+```
