@@ -4,5 +4,25 @@
   "python.languageServer": "Pylance",
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
-  }
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#bd86fb",
+    "activityBar.background": "#bd86fb",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#fdddc1",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#bd86fb",
+    "statusBar.background": "#a254fa",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#bd86fb",
+    "statusBarItem.remoteBackground": "#a254fa",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#a254fa",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#a254fa99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#a254fa"
 }
